@@ -1,80 +1,38 @@
 {
-  "COMMENT": "Details on these fields: https://help.noteplan.co/article/67-create-command-bar-plugins",
   "macOS.minVersion": "10.13.0",
   "noteplan.minAppVersion": "3.4.0",
   "plugin.id": "galkin.RandomNextToDo",
-  "plugin.name": "🧩 Random Next ToDo",
+  "plugin.name": "📋 Random Next ToDo",
   "plugin.version": "0.1.0",
   "plugin.lastUpdateInfo": "Added randomProject to open a random project note from a configured folder.",
   "plugin.description": "Random Next ToDo",
   "plugin.author": "galkin",
-  "plugin.requiredFiles-EDIT_ME": ["html-plugin-comms.js"],
-  "plugin.requiredFiles-NOTE": "If you want to use HTML windows, remove the '-EDIT_ME' ABOVE",
-  "plugin.dependsOn": [],
   "plugin.script": "script.js",
   "plugin.url": "https://github.com/NotePlan/plugins/blob/main/galkin.RandomNextToDo/README.md",
   "plugin.changelog": "https://github.com/NotePlan/plugins/blob/main/galkin.RandomNextToDo/CHANGELOG.md",
   "plugin.commands": [
     {
-      "note": "================== COMMMANDS ========================"
-    },
-    {
       "name": "randomToDo",
       "description": "Select a random active to-do checkbox on the current page and focus it.",
-      "jsFunction": "randomNextToDo"
+      "jsFunction": "randomNextToDo",
+      "arguments": []
     },
     {
       "name": "randomProject",
       "description": "Open a random project note from the configured project folder and its subfolders.",
-      "jsFunction": "randomProject"
+      "jsFunction": "randomProject",
+      "arguments": []
     },
     {
-      "NOTE": "DO NOT EDIT THIS COMMAND/TRIGGER",
-      "name": "Random Next ToDo: Version",
-      "description": "Update + Check Version",
-      "jsFunction": "versionCheck"
-    },
-    {
-      "description": "DO NOT EDIT THIS COMMAND/TRIGGER",
-      "name": "onOpen",
-      "jsFunction": "onOpen",
-      "hidden": true
-    },
-    {
-      "description": "DO NOT EDIT THIS COMMAND/TRIGGER",
-      "name": "onEditorWillSave",
-      "jsFunction": "onEditorWillSave",
-      "hidden": true
-    },
-    {
-      "NOTE": "DO NOT EDIT THIS COMMAND/TRIGGER",
-      "name": "onMessageFromHTMLView",
-      "description": "galkin.RandomNextToDo: Callback function to receive messages from HTML view",
-      "jsFunction": "onMessageFromHTMLView",
-      "hidden": true
-    },
-    {
-      "NOTE": "DO NOT EDIT THIS COMMAND/TRIGGER",
-      "name": "Random Next ToDo: Update Plugin Settings",
-      "description": "Preferences",
-      "jsFunction": "editSettings"
+      "name": "projectsList",
+      "description": "Insert a hierarchical list of project note links from the configured project folder.",
+      "jsFunction": "projectsList",
+      "arguments": [
+        "optional context object, e.g. {\"source\":\"templating\"}"
+      ]
     }
   ],
   "plugin.settings": [
-    {
-      "note": "================== SETTINGS ========================"
-    },
-    {
-      "COMMENT": "Plugin settings documentation: https://help.noteplan.co/article/123-plugin-configuration",
-      "type": "heading",
-      "title": "Random Next ToDo Settings"
-    },
-    {
-      "type": "hidden",
-      "key": "pluginID",
-      "default": "galkin.RandomNextToDo",
-      "COMMENT": "This is for use by the editSettings helper function. PluginID must match the plugin.id in the top of this file"
-    },
     {
       "title": "Project Folder",
       "key": "projectFolderName",
@@ -83,10 +41,6 @@
       "default": "Projects"
     },
     {
-      "note": "================== DEBUGGING SETTINGS ========================"
-    },
-    {
-      "NOTE": "DO NOT CHANGE THE FOLLOWING SETTINGS; ADD YOUR SETTINGS ABOVE ^^^",
       "type": "separator"
     },
     {

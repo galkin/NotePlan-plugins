@@ -1,52 +1,51 @@
 # Random Next ToDo NotePlan Plugin
 
-## Latest Updates
+This plugin helps you quickly pick what to work on next.
 
-See [CHANGELOG](https://github.com/NotePlan/plugins/blob/main/galkin.RandomNextToDo/CHANGELOG.md) for updates.
+## Commands
 
-## What This Plugin Does
-
-This plugin adds two commands:
+The plugin provides three commands:
 
 - `/randomToDo`
 - `/randomProject`
+- `/projectsList`
 
-### randomToDo
+### /randomToDo
 
-When you run it, the plugin:
+Chooses one active task from the currently open note and moves your cursor to it.
 
-1. Reads tasks on the currently open note.
-2. Filters to active checkbox-style tasks.
-3. Excludes completed and cancelled tasks.
-4. Picks one task at random.
-5. Scrolls to the selected task and places the cursor on it.
-
-Eligible paragraph types are:
+Used task types:
 
 - `open`
 - `scheduled`
 - `checklist`
 - `checklistScheduled`
 
-### randomProject
+### /randomProject
 
-When you run it, the plugin:
+Opens one random project note from your configured project folder (including subfolders).
 
-1. Loads the configured project folder from plugin settings.
-2. Searches project notes inside that folder and all subfolders.
-3. Picks one project note at random.
-4. Opens the selected note in the editor.
+### /projectsList
 
-## Settings
+Builds a clickable hierarchical list of project notes and:
 
-The plugin provides one functional setting:
+1. Returns the list as text when called from a template.
+2. Inserts the list at the current cursor position when run as a normal command.
 
-- `projectFolderName`: folder path used by `randomProject`. Default is `Projects`. Subfolders are included automatically.
+Links are inserted in NotePlan wiki format: `[[Note Title]]`.
 
-## Empty State Behavior
+## Setting
 
-If no eligible tasks are found for `randomToDo`, or no project notes are found for `randomProject`, the plugin shows an informational message and does not modify content or navigation.
+The plugin uses one setting:
 
-## Development Notes
+- `projectFolderName`: folder path used by `/randomProject` and `/projectsList`
+- Default: `Projects`
+- Subfolders are included automatically
 
-This plugin follows the NotePlan plugins repo workflow and is built from `src/` into `script.js`.
+## Empty Results
+
+If no matching tasks or project notes are found, the plugin shows an informational message and does not change your notes.
+
+## Updates
+
+See [CHANGELOG](https://github.com/NotePlan/plugins/blob/main/galkin.RandomNextToDo/CHANGELOG.md).
